@@ -11,21 +11,13 @@
         $date = $_POST['date'];
         $salaire = $_POST['salaire'];
 
-        $pdo->query("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('$prenom','$nom','$sexe', '$service', '$date', '$salaire') ");
+        $rq = $pdo->prepare("INSERT INTO employes VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+        $rq->execute(array(htmlentities($prenom), htmlentities($nom), htmlentities($sexe), htmlentities($service), htmlentities($date), htmlentities($salaire)));
+        
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <title>Enregistrement d'employés</title>
-</head>
-<body>
+<?php require_once('assets/header.php'); ?>
     <div class="container">
         <form method="post">
             <div class="form-group">
@@ -65,5 +57,5 @@
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
-</body>
-</html>
+
+<?php require_once('assets/footer.php'); ?>
