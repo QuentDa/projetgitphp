@@ -1,7 +1,7 @@
 <?php
     require_once('assets/config.php');
     //var_dump($_POST);
-
+    $error ='';
 
     if($_POST){
         $prenom = $_POST['prenom'];
@@ -11,14 +11,23 @@
         $date = $_POST['date'];
         $salaire = $_POST['salaire'];
 
-        $rq = $pdo->prepare("INSERT INTO employes VALUES (NULL, ?, ?, ?, ?, ?, ?)");
-        $rq->execute(array(htmlentities($prenom), htmlentities($nom), htmlentities($sexe), htmlentities($service), htmlentities($date), htmlentities($salaire)));
-        
+        if(preg_match('/^[a-zA-Zèàçé-]+$/', $_POST['prenom']) && preg_match('/^[a-zA-Zèàçé\-\ ]+$/', $_POST['nom']) && preg_match('/^[a-zA-Zèàçé\-\ ]+$/', $_POST['service'])){
+
+            if(strlen($prenom)<15 && strlen($nom)<15){
+                $rq = $pdo->prepare("INSERT INTO employes VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+                $rq->execute(array(htmlentities($prenom), htmlentities($nom), htmlentities($sexe), htmlentities($service), htmlentities($date), htmlentities($salaire)));
+            }else{
+                $error = 'Le prenom ou le nom est trop long';
+            }
+        }else{
+            $error = 'Pas de caractère spéciaux';
+        }
     }
 ?>
 
 <?php require_once('assets/header.php'); ?>
     <div class="container">
+    <span style="color:red;"><?= $error ?></span>
         <form method="post">
             <div class="form-group">
                 <label for="prenom">Prenom</label>
