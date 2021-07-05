@@ -13,20 +13,20 @@ if(isset($_GET['action']) && $_GET['action'] == 'suppression'){
     $connexion->query("DELETE FROM employes WHERE id_employes = '$_GET[id_employes]' ");
     header('location: afficher_employes.php');
 }
-if($_POST){
+if(isset($_POST['nom'])){
 
-    $rechercheTerm = $_POST['term'];
+    $rechercheTerm = $_POST['nom'];
 
-    var_dump($rechercheTerm);
+    
 
-    // raffrechir automatiquement aprés un post
-    echo "<meta http-equiv='refresh' content='0'>";
+    // raffrechir automatiquement aprés un post 
+    //echo "<meta http-equiv='refresh' content='0'>";
 }
 ?>
 <form method="post">
     <div class="form-row">
         <div class="col-sm-3">
-            <input class="form-control" type="text" placeholder="tapez un nom" name="term" />
+            <input class="form-control" type="text" placeholder="tapez un nom" name="nom" />
         </div>
         <button type="submit" class="btn btn-primary">recherche</button>
     </div>
