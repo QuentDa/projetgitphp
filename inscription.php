@@ -1,5 +1,18 @@
 <?php
-    
+    require_once('assets/config.php');
+    //var_dump($_POST);
+
+
+    if($_POST){
+        $prenom = $_POST['prenom'];
+        $nom = $_POST['nom'];
+        $sexe = $_POST['sexe'];
+        $service = $_POST['service'];
+        $date = $_POST['date'];
+        $salaire = $_POST['salaire'];
+
+        $pdo->query("INSERT INTO employes (prenom, nom, sexe, service, date_embauche, salaire) VALUES ('$prenom','$nom','$sexe', '$service', '$date', '$salaire') ");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +58,7 @@
 
             <div class="form-group">
                 <label for="salaire">Salaire Net</label>
-                <input type="number" min="0" name="prix" class="form-control">
+                <input type="number" min="0" name="salaire" class="form-control">
             </div>
 
             
