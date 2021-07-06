@@ -2,8 +2,8 @@
 
 $host = 'localhost';
 $username = 'root';
-$password = '';
-$dbname = "entreprise";
+$password = 'root';
+$dbname = "projet_git";
 
 try{
 

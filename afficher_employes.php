@@ -1,12 +1,7 @@
 <?php 
 //Afficher un formulaire de recherche pour chercher les employés avec leur prénom
-<<<<<<< HEAD
-include("assets/header.php");
-include("./config/database.php");
-=======
 
 require_once('assets/config.php');
->>>>>>> master
 ?>
 <?php
 $fetchUsers = $pdo->query('SELECT * FROM employes');
@@ -69,9 +64,5 @@ if(isset($_POST['nom'])){
 </table>
 
 <?php
-<<<<<<< HEAD
-    include("assets/footer.php");
-=======
     require_once("assets/footer.php");
->>>>>>> master
 ?>
