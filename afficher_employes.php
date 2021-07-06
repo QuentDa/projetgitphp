@@ -1,16 +1,20 @@
 <?php 
 //Afficher un formulaire de recherche pour chercher les employés avec leur prénom
+<<<<<<< HEAD
 include("assets/header.php");
 include("./config/database.php");
+=======
+
+require_once('assets/config.php');
+>>>>>>> master
 ?>
 <?php
-$fetchUsers = $connexion->query('SELECT * FROM employes');
+$fetchUsers = $pdo->query('SELECT * FROM employes');
 $users = $fetchUsers->fetchAll(PDO::FETCH_ASSOC);
-$recup = $connexion->query('SELECT * FROM employes');
-echo "<h3>Affichage de " . $recup->rowCount() . " Employes</h3>";
+$recup = $pdo->query('SELECT * FROM employes');
 
 if(isset($_GET['action']) && $_GET['action'] == 'suppression'){
-    $connexion->query("DELETE FROM employes WHERE id_employes = '$_GET[id_employes]' ");
+    $pdo->query("DELETE FROM employes WHERE id_employes = '$_GET[id_employes]' ");
     header('location: afficher_employes.php');
 }
 if(isset($_POST['nom'])){
@@ -23,9 +27,11 @@ if(isset($_POST['nom'])){
     //echo "<meta http-equiv='refresh' content='0'>";
 }
 ?>
+<?php require_once('assets/header.php'); ?>
+<?= "<h3>Affichage de " . $recup->rowCount() . " Employes</h3>"; ?>
 <form method="post">
     <div class="form-row">
-        <div class="col-sm-3">
+        <div class="col-sm-8">
             <input class="form-control" type="text" placeholder="tapez un nom" name="nom" />
         </div>
         <button type="submit" class="btn btn-primary">recherche</button>
@@ -63,5 +69,9 @@ if(isset($_POST['nom'])){
 </table>
 
 <?php
+<<<<<<< HEAD
     include("assets/footer.php");
+=======
+    require_once("assets/footer.php");
+>>>>>>> master
 ?>
