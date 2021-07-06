@@ -11,3 +11,9 @@
 .mt-5{
     margin-top: 3vh;
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
