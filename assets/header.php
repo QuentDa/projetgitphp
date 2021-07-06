@@ -7,7 +7,6 @@
     <title>Back Office Employés</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/simple-sidebar.css">
 </head>
 <body>
     
