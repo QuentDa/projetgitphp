@@ -57,7 +57,7 @@ if(isset($_POST['nom'])){
                     echo "<td>" . $value[array_keys($value)[$i]] . "</td>";
                 }
                 echo "<td>";
-                        echo "<a class='btn btn-warning' href=\"?action=modifier&id_employes=$value[id_employes]\">Modifier</a>";
+                        echo "<a class='btn btn-warning' href=\"edit_employe.php?action=modifier&id_employes=$value[id_employes]\">Modifier</a>";
                 echo "</td>";
                 echo "<td>";
                         echo "<a class='btn btn-danger' href=\"?action=suppression&id_employes=$value[id_employes]\">Supprimer</a>";
