@@ -1,6 +1,6 @@
 <?php 
 //Afficher un formulaire de recherche pour chercher les employés avec leur prénom
-include("./assets/header.html");
+include("assets/header.php");
 include("./config/database.php");
 ?>
 <?php
@@ -63,5 +63,5 @@ if(isset($_POST['nom'])){
 </table>
 
 <?php
-    include("./assets/footer.html");
+    include("assets/footer.php");
 ?>

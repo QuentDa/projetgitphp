@@ -1,14 +1,6 @@
-<?php
-    include("./assets/header.html");
-?>
+<?php require_once('assets/header.php'); ?>
+    <div class="container">
+        <h1 class="text-center">Bienvenue sur le Back Office de votre entreprise</h1>
+    </div>
 
-
-Ici index
-
-
-
-
-
-<?php
-    include("./assets/footer.html");
-?>
+<?php require_once('assets/footer.php'); ?>
